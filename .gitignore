@@ -1,0 +1,11 @@
+# dependencies
+/node_modules
+/client/node_modules
+
+# production
+/client/build
+
+# misc
+.DS_Store
+/client/.DS_Store
+/config/config.env
