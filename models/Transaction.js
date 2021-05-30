@@ -12,7 +12,7 @@ const TransactionSchema = new mongoose.Schema({
   },
   createdAt: {
     type: Date,
-    defulat: Date.now,
+    default: Date.now,
   },
 });
 

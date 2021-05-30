@@ -4,7 +4,7 @@ const {
   getTransactions,
   addTransaction,
   deleteTransaction,
-} = require('../controllers/transactionsController');
+} = require('../controllers/transactions');
 
 router //
   .route('/')
