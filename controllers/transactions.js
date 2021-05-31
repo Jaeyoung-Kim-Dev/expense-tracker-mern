@@ -59,7 +59,7 @@ exports.addTransaction = async (req, res, next) => {
 exports.deleteTransaction = async (req, res, next) => {
   try {
     const transaction = await Transaction.findById(req.params.id);
-
+    console.log(transaction);
     if (!transaction) {
       return res.status(404).json({
         success: false,
@@ -73,8 +73,8 @@ exports.deleteTransaction = async (req, res, next) => {
       success: true,
       data: {},
     });
-  } catch (err) {
-    return res.status(500).json({
+  } catch (error) {
+    return res.send(500).json({
       success: false,
       error: 'Server Error',
     });
