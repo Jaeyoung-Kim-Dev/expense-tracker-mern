@@ -34,22 +34,22 @@ exports.addTransaction = async (req, res, next) => {
       data: transaction,
     });
   } catch (error) {
-    console.log(error);
-    // if (error.name === 'ValidationError') {
-    //   const messages = Object.values(error.errors).map(
-    //     (value) => value.message
-    //   );
+    // console.log(error);
+    if (error.name === 'ValidationError') {
+      const messages = Object.values(error.errors).map(
+        (value) => value.message
+      );
 
-    //   return res.status(400).json({
-    //     success: false,
-    //     error: messages,
-    //   });
-    // } else {
-    //   return res.send(500).json({
-    //     success: false,
-    //     error: 'Server Error',
-    //   });
-    // }
+      return res.status(400).json({
+        success: false,
+        error: messages,
+      });
+    } else {
+      return res.send(500).json({
+        success: false,
+        error: 'Server Error',
+      });
+    }
   }
 };
 
