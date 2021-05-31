@@ -13,7 +13,7 @@ exports.getTransactions = async (req, res, next) => {
       data: transactions,
     });
   } catch (error) {
-    return res.send(500).json({
+    return res.status(500).json({
       success: false,
       error: 'Server Error',
     });
@@ -45,7 +45,7 @@ exports.addTransaction = async (req, res, next) => {
         error: messages,
       });
     } else {
-      return res.send(500).json({
+      return res.status(500).json({
         success: false,
         error: 'Server Error',
       });
@@ -59,7 +59,7 @@ exports.addTransaction = async (req, res, next) => {
 exports.deleteTransaction = async (req, res, next) => {
   try {
     const transaction = await Transaction.findById(req.params.id);
-    console.log(transaction);
+
     if (!transaction) {
       return res.status(404).json({
         success: false,
@@ -74,7 +74,7 @@ exports.deleteTransaction = async (req, res, next) => {
       data: {},
     });
   } catch (error) {
-    return res.send(500).json({
+    return res.status(500).json({
       success: false,
       error: 'Server Error',
     });
