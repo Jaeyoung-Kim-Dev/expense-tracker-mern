@@ -31,10 +31,10 @@ export const GlobalProvider = ({ children }) => {
       });
     }
   }
-  //TODO: 404 occurs here
+
   async function deleteTransaction(id) {
     try {
-      await axios.delete(`/api/v1/${id}`);
+      await axios.delete(`/api/v1/transactions/${id}`);
 
       dispatch({
         type: 'DELETE_TRANSACTION',
